@@ -17,84 +17,153 @@ font-family:'Poppins',sans-serif;
 }
 
 body{
-
-background:#f4fcfd;
+min-height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-min-height:100vh;
-padding:20px;
+padding:40px 20px;
+background:linear-gradient(135deg,#ecfdff,#dffcff,#f7ffff);
+overflow-x:hidden;
+position:relative;
+}
 
+/* Floating Background */
+
+body::before{
+content:'';
+position:fixed;
+width:420px;
+height:420px;
+background:#11BCC4;
+opacity:.08;
+border-radius:50%;
+top:-150px;
+left:-120px;
+filter:blur(30px);
+}
+
+body::after{
+content:'';
+position:fixed;
+width:350px;
+height:350px;
+background:#11BCC4;
+opacity:.08;
+border-radius:50%;
+bottom:-120px;
+right:-100px;
+filter:blur(40px);
+}
+
+/* Decorative Medical Plus */
+
+.plus1,
+.plus2,
+.plus3{
+position:fixed;
+color:#11BCC4;
+font-size:42px;
+opacity:.08;
+font-weight:700;
+pointer-events:none;
+}
+
+.plus1{
+top:18%;
+left:8%;
+}
+
+.plus2{
+top:65%;
+right:8%;
+}
+
+.plus3{
+bottom:10%;
+left:18%;
 }
 
 .container{
 
 width:100%;
-max-width:600px;
-background:#fff;
-border-radius:22px;
-padding:40px;
-box-shadow:0 15px 40px rgba(0,0,0,.12);
+max-width:620px;
+background:rgba(255,255,255,.95);
+backdrop-filter:blur(15px);
+border-radius:28px;
+padding:45px;
+box-shadow:
+0 25px 60px rgba(0,0,0,.12);
+border:1px solid rgba(17,188,196,.18);
+position:relative;
+overflow:hidden;
+
+}
+
+/* Top Gradient */
+
+.container::before{
+
+content:'';
+position:absolute;
+left:0;
+top:0;
+width:100%;
+height:8px;
+background:linear-gradient(90deg,#11BCC4,#30D7DE);
 
 }
 
 .logo{
 
 text-align:center;
-margin-bottom:20px;
+margin-bottom:18px;
 
 }
 
 .logo img{
 
-width:190px;
+width:200px;
+transition:.3s;
+
+}
+
+.logo img:hover{
+
+transform:scale(1.05);
 
 }
 
 h1{
 
 text-align:center;
+font-size:33px;
+font-weight:700;
 color:#11BCC4;
-font-size:34px;
-margin-bottom:8px;
 
 }
 
 .subtitle{
 
 text-align:center;
-color:#666;
+margin-top:8px;
+margin-bottom:28px;
+color:#64748B;
 font-size:15px;
-margin-bottom:25px;
-
-}
-
-.banner{
-
-text-align:center;
-margin-bottom:30px;
-
-}
-
-.banner img{
-
-width:100%;
-max-width:340px;
 
 }
 
 .form-group{
 
-margin-bottom:18px;
+margin-bottom:20px;
 
 }
 
 label{
 
 display:block;
-margin-bottom:8px;
 font-weight:600;
-color:#333;
+margin-bottom:8px;
+color:#1E293B;
 
 }
 
@@ -102,19 +171,21 @@ input,
 textarea{
 
 width:100%;
-padding:15px;
-border:2px solid #d8e7ea;
-border-radius:12px;
+padding:16px 18px;
+border-radius:14px;
+border:2px solid #d8ecee;
 font-size:15px;
-transition:.3s;
-outline:none;
+transition:.30s;
+background:#fff;
 
 }
 
 input:focus,
 textarea:focus{
 
+outline:none;
 border-color:#11BCC4;
+box-shadow:0 0 0 5px rgba(17,188,196,.15);
 
 }
 
@@ -128,30 +199,63 @@ height:90px;
 button{
 
 width:100%;
-background:#11BCC4;
-color:white;
-padding:16px;
+padding:17px;
+border:none;
+border-radius:16px;
+background:linear-gradient(90deg,#11BCC4,#29D3DA);
+color:#fff;
 font-size:18px;
 font-weight:600;
-border:none;
-border-radius:12px;
 cursor:pointer;
-transition:.3s;
+transition:.35s;
+box-shadow:0 15px 25px rgba(17,188,196,.35);
 
 }
 
 button:hover{
 
-background:#0faab2;
+transform:translateY(-4px);
+box-shadow:0 20px 35px rgba(17,188,196,.45);
+
+}
+
+.banner{
+
+text-align:center;
+margin-top:40px;
+
+}
+
+.banner img{
+
+width:100%;
+max-width:300px;
+transition:.4s;
+
+}
+
+.banner img:hover{
+
+transform:scale(1.03);
+
+}
+
+.tagline{
+
+text-align:center;
+margin-top:10px;
+font-size:16px;
+font-weight:600;
+color:#11BCC4;
 
 }
 
 .footer{
 
-margin-top:25px;
 text-align:center;
+margin-top:30px;
 font-size:13px;
-color:#777;
+color:#64748B;
 
 }
 
@@ -159,24 +263,23 @@ color:#777;
 
 .container{
 
-padding:25px;
-
-}
-
-h1{
-
-font-size:28px;
+padding:28px;
 
 }
 
 .logo img{
 
-width:150px;
+width:160px;
+
+}
+
+h1{
+
+font-size:27px;
 
 }
 
 }
-
 </style>
 
 </head>
