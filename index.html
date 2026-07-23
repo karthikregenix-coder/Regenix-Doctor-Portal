@@ -392,7 +392,10 @@ font-size:28px;
         Please provide your professional details to complete your registration.
     </p>
 
-    <form id="registrationForm">
+   <form id="registrationForm"
+      action="https://script.google.com/macros/s/AKfycbwjDTKGRwIdMViQq7D5cITfghVHFL2pdQ39CE65SiFiEUWIVbukSWQPTcBkuK_X-FnO0w/exec"
+      method="POST"
+      target="hidden_iframe">
 
         <div class="form-group">
 
@@ -405,6 +408,7 @@ font-size:28px;
                 <input
                     type="text"
                     id="doctorName"
+                    name="doctorName"
                     placeholder="Enter Doctor Name"
                     required>
 
@@ -423,6 +427,7 @@ font-size:28px;
                 <input
                     type="tel"
                     id="phone"
+                    name="phone"
                     placeholder="Enter 10-digit Mobile Number"
                     maxlength="10"
                     pattern="[0-9]{10}"
@@ -443,6 +448,7 @@ font-size:28px;
                 <input
                     type="email"
                     id="email"
+                    name="email"
                     placeholder="Enter Email Address">
 
             </div>
@@ -459,6 +465,7 @@ font-size:28px;
 
                 <textarea
                     id="hospital"
+                    name="hospital"
                     placeholder="Enter Hospital / Clinic Name"
                     required></textarea>
 
@@ -477,6 +484,7 @@ font-size:28px;
                 <input
                     type="text"
                     id="city"
+                    name="city"
                     placeholder="Enter Area / City"
                     required>
 
@@ -647,55 +655,7 @@ cursor:pointer;
 }
 
 </style>
-
-<script>
-
-const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwjDTKGRwIdMViQq7D5cITfghVHFL2pdQ39CE65SiFiEUWIVbukSWQPTcBkuK_X-FnO0w/exec";
-
-const form = document.getElementById("registrationForm");
-const popup = document.getElementById("successPopup");
-
-form.addEventListener("submit", async (e) => {
-
-    e.preventDefault();
-
-    const data = {
-        doctorName: document.getElementById("doctorName").value,
-        phone: document.getElementById("phone").value,
-        email: document.getElementById("email").value,
-        hospital: document.getElementById("hospital").value,
-        city: document.getElementById("city").value
-    };
-
-    try {
-
-        const response = await fetch(WEB_APP_URL, {
-            method: "POST",
-            headers: {
-                "Content-Type": "text/plain;charset=utf-8"
-            },
-            body: JSON.stringify(data)
-        });
-
-        const result = await response.json();
-
-        if (result.result === "success") {
-            popup.classList.add("show");
-            form.reset();
-        }
-
-    } catch (err) {
-        console.error(err);
-        alert("Registration failed. Check the browser console (F12).");
-    }
-
-});
-
-function closePopup() {
-    popup.classList.remove("show");
-}
-
-</script>
+<iframe name="hidden_iframe" style="display:none;"></iframe>
 </body>
 
 </html>
