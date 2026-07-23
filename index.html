@@ -393,7 +393,7 @@ font-size:28px;
     </p>
 
    <form id="registrationForm"
-      action="https://script.google.com/macros/s/AKfycbwjDTKGRwIdMViQq7D5cITfghVHFL2pdQ39CE65SiFiEUWIVbukSWQPTcBkuK_X-FnO0w/exec"
+      action="https://script.google.com/macros/s/AKfycbxW3J0RjDcvlYoDV3kbHbbUFY-vEsk1Cv8w11tYiQh3PgXb3i-cEWVk484nS_OBtZeEdQ/exec"
       method="POST"
       target="hidden_iframe">
 
@@ -656,10 +656,21 @@ cursor:pointer;
 
 </style>
 <iframe name="hidden_iframe" style="display:none;"></iframe>
+
+<script>
+document.getElementById('registrationForm').addEventListener('submit', function() {
+  var popup = document.getElementById('successPopup');
+  setTimeout(function(){
+    popup.classList.add('show');
+  }, 600);
+});
+
+function closePopup(){
+  document.getElementById('successPopup').classList.remove('show');
+  document.getElementById('registrationForm').reset();
+}
+</script>
+
 </body>
 
 </html>
-
-    </div>
-
-</div>
