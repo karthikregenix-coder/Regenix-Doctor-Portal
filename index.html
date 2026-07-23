@@ -1,23 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regenix Doctor Registration Portal</title>
 
-<meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<title>Regenix Doctor Registration Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="style.css">
+</head>
 
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<body>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<!-- Background Decorations -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<div class="circle one"></div>
+<div class="circle two"></div>
+<div class="plus plus1">+</div>
+<div class="plus plus2">+</div>
+<div class="plus plus3">+</div>
 
-<style>
+<div class="container">
+
+    <!-- Header -->
+
+    <header>
+
+        <img src="regenix-logo.png"
+             alt="Regenix Logo"
+             class="logo">
+
+        <h1>Doctor Registration Portal</h1>
+
+        <p>
+            Please provide your professional details
+            to complete your registration.
+        </p>
+
+    </header>
+
+    <!-- Registration Form -->
+
+    <form id="registrationForm">
+
+        <div class="input-group">
+
+            <label>Doctor Name *</label>
+
+            <div class="input-box">
+
+                <i class="fa-solid fa-user-doctor"></i>
+
+                <input
+                    type="text"
+                    id="doctorName"
+                    placeholder="Enter Doctor Name"
+                    required>
+
+            </div>
+
+        </div>
+
+        <div class="input-group">
+
+            <label>Phone Number *</label>
+
+            <div class="input-box">
+
+                <i class="fa-solid fa-phone"></i>
+
+                <input
+                    type="tel"
+                    id="phone"
+                    maxlength="10"
+                    placeholder="Enter Mobile Number"
+                    required>
+
+            </div>
+
+        </div>
+
+        <div class="input-group">
+
+            <label>Email ID</label>
+
+            <div class="input-box">
+
+                <i class="fa-solid fa-envelope"></i>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter Email Address">
+
+            </div>
+
+        </div>
+
+        <div class="input-group">
+
+            <label>Hospital / Clinic Name *</label>
+
+            <div class="input-box">
+
+                <i class="fa-solid fa-hospital"></i>
+
+                <textarea
+                    id="hospital"
+                    placeholder="Enter Hospital / Clinic Name"
+                    required></textarea>
+
+            </div>
+
+        </div>
+
+        <div class="input-group">
+
+            <label>Area / City *</label>
+
+            <div class="input-box">
+
+                <i class="fa-solid fa-location-dot"></i>
+
+                <input
+                    type="text"
+                    id="city"
+                    placeholder="Enter Area / City"
+                    required>
+
+            </div>
+
+        </div>
+
+        <button type="submit">
+
+            Submit
+
+        </button>
+
+    </form>
+
+    <!-- Product Logo -->
+
+    <div class="product">
+
+        <img src="sustaglar.png"
+             alt="SUSTAGLAR">
+
+    </div>
+
+    <footer>
+
+        © Regenix Drugs Limited
+
+    </footer>
+
+</div>
+
+<!-- Success Popup -->
+
+<div class="popup" id="popup">
+
+    <div class="popup-card">
+
+        <i class="fa-solid fa-circle-check"></i>
+
+        <h2>Registration Successful</h2>
+
+        <p>
+
+            Thank you for registering with Regenix.
+
+        </p>
+
+        <button id="closePopup">
+
+            OK
+
+        </button>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
+/* ===========================
+   REGENIX DOCTOR PORTAL
+=========================== */
 
 *{
 margin:0;
@@ -28,7 +205,7 @@ font-family:'Poppins',sans-serif;
 
 body{
 
-background:linear-gradient(135deg,#F6FEFE,#E8FCFD,#FFFFFF);
+background:linear-gradient(135deg,#F4FEFF,#E8FCFD,#FFFFFF);
 
 min-height:100vh;
 
@@ -46,53 +223,45 @@ position:relative;
 
 }
 
-/* Background Graphics */
+/* Background */
 
-body::before{
-
-content:"";
+.circle{
 
 position:fixed;
 
-width:420px;
-
-height:420px;
-
-background:#11BCC4;
-
 border-radius:50%;
 
-left:-140px;
-
-top:-150px;
+background:#11BCC4;
 
 opacity:.08;
 
 filter:blur(30px);
 
+z-index:-1;
+
 }
 
-body::after{
+.circle.one{
 
-content:"";
+width:420px;
 
-position:fixed;
+height:420px;
 
-width:380px;
+top:-160px;
 
-height:380px;
+left:-120px;
 
-background:#11BCC4;
+}
 
-border-radius:50%;
+.circle.two{
 
-right:-140px;
+width:350px;
 
-bottom:-150px;
+height:350px;
 
-opacity:.08;
+bottom:-130px;
 
-filter:blur(40px);
+right:-120px;
 
 }
 
@@ -104,55 +273,57 @@ font-size:45px;
 
 font-weight:bold;
 
-color:#11BCC4;
+opacity:.07;
 
-opacity:.08;
+color:#11BCC4;
 
 user-select:none;
 
+z-index:-1;
+
 }
 
-.p1{
+.plus1{
 
 left:7%;
 
-top:20%;
+top:15%;
 
 }
 
-.p2{
+.plus2{
 
-right:8%;
+right:10%;
 
 top:60%;
 
 }
 
-.p3{
+.plus3{
 
-left:20%;
+left:18%;
 
 bottom:8%;
 
 }
 
+/* Card */
+
 .container{
 
 width:100%;
 
-max-width:650px;
+max-width:670px;
 
 background:white;
 
 border-radius:28px;
 
-padding:45px;
+overflow:hidden;
 
-box-shadow:0 25px 60px rgba(0,0,0,.15);
+box-shadow:0 25px 60px rgba(0,0,0,.12);
 
 position:relative;
-
-overflow:hidden;
 
 }
 
@@ -162,37 +333,49 @@ content:"";
 
 position:absolute;
 
-top:0;
-
 left:0;
+
+top:0;
 
 width:100%;
 
 height:8px;
 
-background:linear-gradient(90deg,#11BCC4,#33D8DF);
+background:linear-gradient(90deg,#11BCC4,#34D9E0);
+
+}
+
+/* Header */
+
+header{
+
+padding:45px 45px 20px;
+
+text-align:center;
 
 }
 
 .logo{
 
-text-align:center;
+width:190px;
 
-margin-bottom:20px;
+margin-bottom:18px;
 
-}
-
-.logo img{
-
-width:200px;
+transition:.3s;
 
 }
 
-h1{
+.logo:hover{
 
-text-align:center;
+transform:scale(1.04);
+
+}
+
+header h1{
 
 font-size:34px;
+
+font-weight:700;
 
 color:#11BCC4;
 
@@ -200,21 +383,27 @@ margin-bottom:10px;
 
 }
 
-.subtitle{
-
-text-align:center;
+header p{
 
 color:#64748B;
 
-margin-bottom:35px;
-
 font-size:15px;
+
+line-height:1.7;
 
 }
 
-.form-group{
+/* Form */
 
-margin-bottom:20px;
+form{
+
+padding:10px 45px 20px;
+
+}
+
+.input-group{
+
+margin-bottom:22px;
 
 }
 
@@ -244,6 +433,8 @@ left:18px;
 
 top:18px;
 
+font-size:18px;
+
 color:#11BCC4;
 
 }
@@ -254,17 +445,19 @@ color:#11BCC4;
 
 width:100%;
 
-padding:15px 18px 15px 50px;
+padding:16px 18px 16px 52px;
 
-border:2px solid #DCEFF1;
+border-radius:15px;
 
-border-radius:14px;
+border:2px solid #DDEEF1;
 
 font-size:15px;
 
-transition:.3s;
+transition:.30s;
 
 outline:none;
+
+background:#fff;
 
 }
 
@@ -282,7 +475,7 @@ resize:none;
 
 border-color:#11BCC4;
 
-box-shadow:0 0 0 5px rgba(17,188,196,.15);
+box-shadow:0 0 0 5px rgba(17,188,196,.12);
 
 }
 
@@ -292,23 +485,23 @@ width:100%;
 
 padding:17px;
 
-background:linear-gradient(90deg,#11BCC4,#30D7DE);
-
 border:none;
 
 border-radius:16px;
+
+background:linear-gradient(90deg,#11BCC4,#30D7DE);
+
+color:#fff;
 
 font-size:18px;
 
 font-weight:600;
 
-color:white;
-
 cursor:pointer;
 
-transition:.3s;
+transition:.35s;
 
-box-shadow:0 15px 30px rgba(17,188,196,.35);
+box-shadow:0 15px 35px rgba(17,188,196,.35);
 
 }
 
@@ -316,29 +509,43 @@ button:hover{
 
 transform:translateY(-3px);
 
-box-shadow:0 20px 35px rgba(17,188,196,.45);
+box-shadow:0 22px 45px rgba(17,188,196,.45);
+
+background:linear-gradient(90deg,#0FAFB7,#27D3DA);
 
 }
 
-.banner{
+/* Product */
 
-margin-top:35px;
+.product{
+
+padding:20px 40px 35px;
 
 text-align:center;
 
 }
 
-.banner img{
+.product img{
 
 width:240px;
 
 max-width:90%;
 
+transition:.35s;
+
 }
 
-.footer{
+.product img:hover{
 
-margin-top:20px;
+transform:scale(1.05);
+
+}
+
+/* Footer */
+
+footer{
+
+padding:20px;
 
 text-align:center;
 
@@ -346,186 +553,11 @@ font-size:13px;
 
 color:#64748B;
 
-}
-
-@media(max-width:700px){
-
-.container{
-
-padding:28px;
+border-top:1px solid #ECF5F6;
 
 }
 
-.logo img{
-
-width:160px;
-
-}
-
-h1{
-
-font-size:28px;
-
-}
-
-}
-
-</style>
-
-</head>
-<body>
-
-<div class="plus p1">+</div>
-<div class="plus p2">+</div>
-<div class="plus p3">+</div>
-
-<div class="container">
-
-    <!-- Regenix Logo -->
-    <div class="logo">
-        <img src="regenix-logo.png" alt="Regenix Logo">
-    </div>
-
-    <h1>Doctor Registration Portal</h1>
-
-    <p class="subtitle">
-        Please provide your professional details to complete your registration.
-    </p>
-
-    <form id="registrationForm">
-
-        <div class="form-group">
-
-            <label>Doctor Name *</label>
-
-            <div class="input-box">
-
-                <i class="fa-solid fa-user-doctor"></i>
-
-                <input
-                    type="text"
-                    id="doctorName"
-                    placeholder="Enter Doctor Name"
-                    required>
-
-            </div>
-
-        </div>
-
-        <div class="form-group">
-
-            <label>Phone Number *</label>
-
-            <div class="input-box">
-
-                <i class="fa-solid fa-phone"></i>
-
-                <input
-                    type="tel"
-                    id="phone"
-                    placeholder="Enter 10-digit Mobile Number"
-                    maxlength="10"
-                    pattern="[0-9]{10}"
-                    required>
-
-            </div>
-
-        </div>
-
-        <div class="form-group">
-
-            <label>Email ID</label>
-
-            <div class="input-box">
-
-                <i class="fa-solid fa-envelope"></i>
-
-                <input
-                    type="email"
-                    id="email"
-                    placeholder="Enter Email Address">
-
-            </div>
-
-        </div>
-
-        <div class="form-group">
-
-            <label>Hospital / Clinic Name *</label>
-
-            <div class="input-box">
-
-                <i class="fa-solid fa-hospital"></i>
-
-                <textarea
-                    id="hospital"
-                    placeholder="Enter Hospital / Clinic Name"
-                    required></textarea>
-
-            </div>
-
-        </div>
-
-        <div class="form-group">
-
-            <label>Area / City *</label>
-
-            <div class="input-box">
-
-                <i class="fa-solid fa-location-dot"></i>
-
-                <input
-                    type="text"
-                    id="city"
-                    placeholder="Enter Area / City"
-                    required>
-
-            </div>
-
-        </div>
-
-        <button type="submit">
-            Submit
-        </button>
-
-    </form>
-
-    <div class="banner">
-
-        <img src="sustaglar.png" alt="SUSTAGLAR">
-
-    </div>
-
-    <div class="footer">
-
-        © Regenix Drugs Limited
-
-    </div>
-
-</div>
-<!-- Success Popup -->
-
-<div id="successPopup" class="popup">
-
-    <div class="popup-card">
-
-        <i class="fa-solid fa-circle-check"></i>
-
-        <h2>Registration Successful</h2>
-
-        <p>
-            Thank you for registering with Regenix.
-        </p>
-
-        <button onclick="closePopup()">
-            OK
-        </button>
-
-    </div>
-
-</div>
-
-<style>
+/* Popup */
 
 .popup{
 
@@ -539,29 +571,27 @@ width:100%;
 
 height:100%;
 
-background:rgba(0,0,0,.45);
-
 display:flex;
 
 justify-content:center;
 
 align-items:center;
 
-visibility:hidden;
+background:rgba(0,0,0,.45);
 
 opacity:0;
 
-transition:.3s;
+visibility:hidden;
 
-z-index:999;
+transition:.3s;
 
 }
 
-.popup.show{
-
-visibility:visible;
+.popup.active{
 
 opacity:1;
+
+visibility:visible;
 
 }
 
@@ -569,17 +599,17 @@ opacity:1;
 
 width:90%;
 
-max-width:360px;
+max-width:380px;
 
-background:white;
+background:#fff;
 
-padding:35px;
+padding:40px;
 
 border-radius:24px;
 
 text-align:center;
 
-box-shadow:0 20px 50px rgba(0,0,0,.25);
+box-shadow:0 25px 60px rgba(0,0,0,.25);
 
 animation:popup .35s ease;
 
@@ -589,7 +619,7 @@ animation:popup .35s ease;
 
 from{
 
-transform:scale(.8);
+transform:translateY(20px) scale(.9);
 
 opacity:0;
 
@@ -597,7 +627,7 @@ opacity:0;
 
 to{
 
-transform:scale(1);
+transform:translateY(0) scale(1);
 
 opacity:1;
 
@@ -611,21 +641,27 @@ font-size:70px;
 
 color:#11BCC4;
 
-margin-bottom:15px;
+margin-bottom:20px;
 
 }
 
 .popup-card h2{
 
-color:#11BCC4;
+font-size:28px;
 
 margin-bottom:10px;
+
+color:#11BCC4;
 
 }
 
 .popup-card p{
 
-color:#555;
+font-size:15px;
+
+color:#64748B;
+
+line-height:1.7;
 
 margin-bottom:25px;
 
@@ -633,50 +669,157 @@ margin-bottom:25px;
 
 .popup-card button{
 
-padding:14px 35px;
-
-border:none;
-
-background:#11BCC4;
-
-color:white;
-
-border-radius:12px;
-
-font-size:16px;
-
-font-weight:600;
-
-cursor:pointer;
+width:160px;
 
 }
 
-</style>
+/* Mobile */
 
-<script>
+@media(max-width:768px){
 
-const form=document.getElementById("registrationForm");
+.container{
 
-const popup=document.getElementById("successPopup");
+max-width:100%;
 
-form.addEventListener("submit",function(e){
+}
 
-e.preventDefault();
+header{
 
-popup.classList.add("show");
+padding:35px 25px 20px;
 
-form.reset();
+}
+
+form{
+
+padding:10px 25px 20px;
+
+}
+
+.product{
+
+padding:10px 25px 30px;
+
+}
+
+.logo{
+
+width:160px;
+
+}
+
+header h1{
+
+font-size:28px;
+
+}
+
+.input-box input,
+
+.input-box textarea{
+
+font-size:14px;
+
+}
+
+button{
+
+font-size:17px;
+
+}
+
+.popup-card{
+
+padding:30px;
+
+}
+
+}
+const form = document.getElementById("registrationForm");
+const popup = document.getElementById("popup");
+const closeBtn = document.getElementById("closePopup");
+
+form.addEventListener("submit", function (e) {
+
+    e.preventDefault();
+
+    const doctorName = document.getElementById("doctorName").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const hospital = document.getElementById("hospital").value.trim();
+    const city = document.getElementById("city").value.trim();
+
+    // Basic Validation
+
+    if (doctorName === "") {
+        alert("Please enter Doctor Name");
+        return;
+    }
+
+    if (!/^[0-9]{10}$/.test(phone)) {
+        alert("Please enter a valid 10-digit Mobile Number");
+        return;
+    }
+
+    if (email !== "") {
+
+        const emailRegex =
+            /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!emailRegex.test(email)) {
+            alert("Please enter a valid Email ID");
+            return;
+        }
+
+    }
+
+    if (hospital === "") {
+        alert("Please enter Hospital / Clinic Name");
+        return;
+    }
+
+    if (city === "") {
+        alert("Please enter Area / City");
+        return;
+    }
+
+    // Show Success Popup
+
+    popup.classList.add("active");
+
+    // Reset Form
+
+    form.reset();
 
 });
 
-function closePopup(){
+// Close Popup
 
-popup.classList.remove("show");
+closeBtn.addEventListener("click", function () {
 
-}
+    popup.classList.remove("active");
 
-</script>
+});
 
-</body>
+// Close when clicking outside
 
-</html>
+window.addEventListener("click", function (e) {
+
+    if (e.target === popup) {
+
+        popup.classList.remove("active");
+
+    }
+
+});
+
+// Press ESC to close popup
+
+document.addEventListener("keydown", function (e) {
+
+    if (e.key === "Escape") {
+
+        popup.classList.remove("active");
+
+    }
+
+});
