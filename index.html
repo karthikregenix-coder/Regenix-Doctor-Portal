@@ -651,28 +651,62 @@ cursor:pointer;
 
 <script>
 
-const form=document.getElementById("registrationForm");
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxF6fg1HUlEHdn7aG6AtrJo-MgnGO_WDtI3dQ5e2QROcopLkqs4465CSWKwDhP8mVGvlw/exec";
 
-const popup=document.getElementById("successPopup");
+const form = document.getElementById("registrationForm");
+const popup = document.getElementById("successPopup");
 
-form.addEventListener("submit",function(e){
+form.addEventListener("submit", async function(e){
 
-e.preventDefault();
+    e.preventDefault();
 
-popup.classList.add("show");
+    const data = {
 
-form.reset();
+        doctorName: document.getElementById("doctorName").value,
+        phone: document.getElementById("phone").value,
+        email: document.getElementById("email").value,
+        hospital: document.getElementById("hospital").value,
+        city: document.getElementById("city").value
+
+    };
+
+    try{
+
+        const response = await fetch(WEB_APP_URL,{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify(data)
+        });
+
+        const result = await response.json();
+
+        if(result.result==="success"){
+
+            popup.classList.add("show");
+
+            form.reset();
+
+        }
+
+    }catch(error){
+
+        console.error(error);
+
+        alert("Unable to save registration.");
+
+    }
 
 });
 
 function closePopup(){
 
-popup.classList.remove("show");
+    popup.classList.remove("show");
 
 }
 
 </script>
-
 </body>
 
 </html>
